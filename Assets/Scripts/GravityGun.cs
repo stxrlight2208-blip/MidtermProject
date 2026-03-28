@@ -9,7 +9,7 @@ public class GravityGunFull : MonoBehaviour
 
     [Header("Hold Settings")]
     public float holdDistance = 3f;
-    public float holdForce = 300f;
+    public float holdForce = 50f;
 
     [Header("Effects")]
     public ParticleSystem shootEffect;
@@ -88,20 +88,37 @@ public class GravityGunFull : MonoBehaviour
             if (rb != null)
             {
                 heldObject = rb;
+
+                // ปิดแรงโน้มถ่วง
                 heldObject.useGravity = false;
-                heldObject.linearDamping = 10f; // ลดการแกว่ง
+
+                // รีเซ็ตความเร็ว (สำคัญมาก)
+                heldObject.linearVelocity = Vector3.zero;
+                heldObject.angularVelocity = Vector3.zero;
+
+                // ทำให้นิ่ง
+                heldObject.linearDamping = 20f;
+                heldObject.angularDamping = 10f;
+
+                // กันหมุนมั่ว
+                heldObject.freezeRotation = false; // เปลี่ยนเป็น true ถ้ายังหมุนแรงเกิน
             }
         }
     }
-
     void HoldObject()
     {
         Vector3 targetPos = cam.transform.position + cam.transform.forward * holdDistance;
-        Vector3 dir = targetPos - heldObject.position;
 
-        heldObject.linearVelocity = dir * holdForce * Time.deltaTime;
+        Vector3 forceDir = targetPos - heldObject.position;
+
+        // คำนวณแรงแบบสมูท
+        Vector3 desiredVelocity = forceDir * holdForce;
+
+        // ลดความแรงไม่ให้กระชาก
+        Vector3 smoothVelocity = Vector3.Lerp(heldObject.linearVelocity, desiredVelocity, 0.2f);
+
+        heldObject.linearVelocity = smoothVelocity;
     }
-
     void Release()
     {
         if (heldObject != null)
