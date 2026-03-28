@@ -1979,10 +1979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838bd5aef3b218a479604e9c398cb2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GravityGunFull
-  forcePower: 50
+  forcePower: 25
   range: 100
   cam: {fileID: 330585545}
-  holdDistance: 3
+  holdDistance: 7
   holdForce: 10
   shootEffect: {fileID: 1880232171}
   line: {fileID: 1853671425}

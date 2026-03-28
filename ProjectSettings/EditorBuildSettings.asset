@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu Scene.unity
     guid: 996e555f27a391e4e93c49a6855f90a0
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: eabb066eabbb6274ea996413b583d88c
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 316545bb092e048499c9d6650dd263ab
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 4cd258da70375914ab8963c0812bfc61
-  - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: eabb066eabbb6274ea996413b583d88c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
