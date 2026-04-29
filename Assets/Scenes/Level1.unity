@@ -892,7 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   speed: 8
   jumpForce: 3
-  mouseSensitivity: 25
+  mouseSensitivity: 10
   cameraHolder: {fileID: 330585546}
   groundCheck: {fileID: 298844968}
   groundDistance: 0.3
